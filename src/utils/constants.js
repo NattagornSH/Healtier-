@@ -1,8 +1,8 @@
 export const BMI_CATEGORIES = [
-  { label: 'ผอมเกินไป', key: 'thin', color: '#60a5fa', min: 0, max: 18.5 },
-  { label: 'ปกติ', key: 'normal', color: '#4ade80', min: 18.5, max: 25 },
-  { label: 'น้ำหนักเกิน', key: 'fat', color: '#fb923c', min: 25, max: 30 },
-  { label: 'อ้วน', key: 'obese', color: '#f87171', min: 30, max: Infinity },
+  { label: 'ผอมเกินไป', key: 'thin', color: '#5f95ff', min: 0, max: 18.5 },
+  { label: 'ปกติ', key: 'normal', color: '#16a37a', min: 18.5, max: 23 },
+  { label: 'น้ำหนักเกิน', key: 'fat', color: '#f59f24', min: 23, max: 25 },
+  { label: 'อ้วน', key: 'obese', color: '#ef4e4e', min: 25, max: Infinity },
 ]
 
 export const BMI_LIMITS = {

@@ -7,8 +7,8 @@ export function calculateBMI(weightKg, heightCm) {
 
 export function getBMICategory(bmi) {
   if (bmi < 18.5) return BMI_CATEGORIES[0]
-  if (bmi < 25.0) return BMI_CATEGORIES[1]
-  if (bmi < 30.0) return BMI_CATEGORIES[2]
+  if (bmi < 23.0) return BMI_CATEGORIES[1]
+  if (bmi < 25.0) return BMI_CATEGORIES[2]
   return BMI_CATEGORIES[3]
 }
 

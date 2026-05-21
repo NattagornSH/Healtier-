@@ -9,17 +9,27 @@ function NutritionPage() {
 
   return (
     <div className="nutrition-page">
-      <section className="nutrition-page__intro">
-        <p className="eyebrow">Nutrition API</p>
-        <h1>Nutrition Lookup</h1>
-        <p>
-          ค้นหาข้อมูลโภชนาการจากข้อความอาหาร เช่น "2 eggs and 1 cup rice"
-          แล้วดู calories, macros และสารอาหารสำคัญแบบแยกรายการ
-        </p>
-      </section>
+      <section className="nutrition-hero feature-shell feature-shell--nutrition">
+        <div className="feature-shell__content">
+          <section className="nutrition-page__intro">
+            <p className="eyebrow">Nutrition API</p>
+            <h1>Nutrition Lookup</h1>
+            <p>
+              ค้นหาข้อมูลโภชนาการจากข้อความอาหาร เช่น "2 eggs and 1 cup rice"
+              แล้วดู calories, macros และสารอาหารสำคัญแบบแยกรายการ
+            </p>
+          </section>
 
-      <section className="nutrition-page__search">
-        <NutritionSearchForm onSearch={search} loading={loading} error={error} />
+          <div className="insight-strip" aria-label="Nutrition metrics">
+            <span>Calories</span>
+            <span>Protein</span>
+            <span>Sodium</span>
+          </div>
+        </div>
+
+        <section className="nutrition-page__search">
+          <NutritionSearchForm onSearch={search} loading={loading} error={error} />
+        </section>
       </section>
 
       {loading && (

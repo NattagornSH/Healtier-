@@ -1,74 +1,84 @@
-import { useCallback, useRef, useState } from 'react'
-import { fetchNutrition } from '../services/nutritionApi.js'
+import { useCallback, useRef, useState } from "react";
+import { fetchNutrition } from "../services/nutritionApi.js";
 import {
   calculateNutritionSummary,
   normalizeNutritionItem,
   validateNutritionQuery,
-} from '../utils/nutritionCalculator.js'
+} from "../utils/nutritionCalculator.js";
 
 function useNutrition() {
-  const [items, setItems] = useState([])
-  const [summary, setSummary] = useState(null)
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState(null)
-  const [query, setQuery] = useState('')
-  const [noResults, setNoResults] = useState(false)
-  const abortRef = useRef(null)
+  const [items, setItems] = useState([]);
+  const [summary, setSummary] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [query, setQuery] = useState("");
+  const [noResults, setNoResults] = useState(false);
+  const abortRef = useRef(null);
 
   const search = useCallback(async (nextQuery) => {
-    const validation = validateNutritionQuery(nextQuery)
+    const validation = validateNutritionQuery(nextQuery);
 
     if (!validation.isValid) {
-      throw new Error(validation.errors.join(', '))
+      throw new Error(validation.errors.join(", "));
     }
 
-    abortRef.current?.abort()
-    const controller = new AbortController()
-    abortRef.current = controller
+    abortRef.current?.abort();
+    const controller = new AbortController();
+    abortRef.current = controller;
 
-    setLoading(true)
-    setError(null)
-    setNoResults(false)
-    setQuery(nextQuery.trim())
+    setLoading(true);
+    setError(null);
+    setNoResults(false);
+    setQuery(nextQuery.trim());
 
     try {
-      const data = await fetchNutrition(nextQuery, { signal: controller.signal })
-      if (abortRef.current !== controller) return
+      const data = await fetchNutrition(nextQuery, {
+        signal: controller.signal,
+      });
+      console.log("🔍 Raw API response:", data);
+      if (abortRef.current !== controller) return;
 
-      const normalizedItems = data.map(normalizeNutritionItem)
+      const normalizedItems = data.map(normalizeNutritionItem);
+      console.log("✅ Normalized items:", normalizedItems);
 
-      setItems(normalizedItems)
-      setSummary(
+      setItems(normalizedItems);
+      const calculatedSummary =
         normalizedItems.length > 0
           ? calculateNutritionSummary(normalizedItems)
-          : null,
-      )
-      setNoResults(normalizedItems.length === 0)
+          : null;
+      console.log("📊 Calculated summary:", calculatedSummary);
+      setSummary(calculatedSummary);
+      setNoResults(normalizedItems.length === 0);
     } catch (caughtError) {
-      if (caughtError.name !== 'AbortError' && abortRef.current === controller) {
-        setError(caughtError.message || 'เชื่อมต่อบริการโภชนาการไม่ได้ กรุณาลองใหม่')
-        setItems([])
-        setSummary(null)
-        setNoResults(false)
+      if (
+        caughtError.name !== "AbortError" &&
+        abortRef.current === controller
+      ) {
+        setError(
+          caughtError.message || "เชื่อมต่อบริการโภชนาการไม่ได้ กรุณาลองใหม่",
+        );
+        setItems([]);
+        setSummary(null);
+        setNoResults(false);
       }
     } finally {
       if (abortRef.current === controller) {
-        setLoading(false)
+        setLoading(false);
       }
     }
-  }, [])
+  }, []);
 
   const reset = useCallback(() => {
-    abortRef.current?.abort()
-    setItems([])
-    setSummary(null)
-    setError(null)
-    setLoading(false)
-    setQuery('')
-    setNoResults(false)
-  }, [])
+    abortRef.current?.abort();
+    setItems([]);
+    setSummary(null);
+    setError(null);
+    setLoading(false);
+    setQuery("");
+    setNoResults(false);
+  }, []);
 
-  return { items, summary, loading, error, query, noResults, search, reset }
+  return { items, summary, loading, error, query, noResults, search, reset };
 }
 
-export default useNutrition
+export default useNutrition;

@@ -26,6 +26,7 @@ function BMIScale({ currentBMI, category }) {
       <div className="bmi-scale__labels" aria-hidden="true">
         <span>15</span>
         <span>18.5</span>
+        <span>23</span>
         <span>25</span>
         <span>30</span>
         <span>35</span>

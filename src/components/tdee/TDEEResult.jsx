@@ -1,4 +1,3 @@
-import ResultCard from '../ui/ResultCard.jsx'
 import { MACRO_RATIOS } from '../../utils/constants.js'
 
 const MACRO_ITEMS = [
@@ -25,19 +24,39 @@ function MacroBreakdown({ macros }) {
   )
 }
 
+function EnergyCard({ title, value, unitLabel, status, color }) {
+  return (
+    <section
+      className="result-card energy-card"
+      style={{ '--category-color': color }}
+      aria-label={title}
+    >
+      <p className="result-card__title">{title}</p>
+      <strong className="result-card__value energy-card__value" aria-hidden="true">
+        <span>{value.toLocaleString()}</span>
+        <small>{unitLabel}</small>
+      </strong>
+      <span className="sr-only">{`${value.toLocaleString()} ${unitLabel}`}</span>
+      <span className="result-card__status">{status}</span>
+    </section>
+  )
+}
+
 function TDEEResult({ result, unit, onReset }) {
   return (
     <section className="tdee-result" aria-label="ผลลัพธ์ TDEE">
       <div className="tdee-result__cards">
-        <ResultCard
+        <EnergyCard
           title="BMR"
-          value={`${result.bmr.toLocaleString()} kcal/day`}
+          value={result.bmr}
+          unitLabel="kcal/day"
           status="พลังงานพื้นฐานต่อวัน"
           color="var(--color-bmr)"
         />
-        <ResultCard
+        <EnergyCard
           title="TDEE"
-          value={`${result.tdee.toLocaleString()} kcal/day`}
+          value={result.tdee}
+          unitLabel="kcal/day"
           status={`พลังงานที่ใช้ต่อวัน (${unit === 'imperial' ? 'imperial' : 'metric'})`}
           color="var(--color-tdee)"
         />
