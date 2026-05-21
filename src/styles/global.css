@@ -79,6 +79,14 @@ textarea {
   flex: 1;
 }
 
+/* Remove padding for home page */
+.home-page {
+  margin: calc(-1 * clamp(28px, 4vw, 64px))
+    calc(-1 * clamp(16px, 4vw, 44px)) -80px;
+  width: calc(100% + 2 * clamp(16px, 4vw, 44px));
+  max-width: none;
+}
+
 .navbar {
   position: sticky;
   top: 0;

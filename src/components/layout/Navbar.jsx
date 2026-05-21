@@ -14,8 +14,9 @@ function Navbar() {
       <div className="navbar__right">
         <nav className="navbar__links" aria-label="Main navigation">
           <NavLink to="/" end>
-            {t(translations.navbar.bmi)}
+            {t(translations.navbar.home)}
           </NavLink>
+          <NavLink to="/bmi">{t(translations.navbar.bmi)}</NavLink>
           <NavLink to="/tdee">{t(translations.navbar.tdee)}</NavLink>
           <NavLink to="/nutrition">{t(translations.navbar.nutrition)}</NavLink>
         </nav>

@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import Navbar from "./components/layout/Navbar.jsx";
+import HomePage from "./pages/HomePage.jsx";
 import BMIPage from "./pages/BMIPage.jsx";
 import TDEEPage from "./pages/TDEEPage.jsx";
 import NutritionPage from "./pages/NutritionPage.jsx";
@@ -15,7 +16,8 @@ function App() {
           <Navbar />
           <main className="app-main">
             <Routes>
-              <Route path="/" element={<BMIPage />} />
+              <Route path="/" element={<HomePage />} />
+              <Route path="/bmi" element={<BMIPage />} />
               <Route path="/tdee" element={<TDEEPage />} />
               <Route path="/nutrition" element={<NutritionPage />} />
             </Routes>

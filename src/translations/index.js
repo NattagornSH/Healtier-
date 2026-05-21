@@ -1,9 +1,193 @@
 export const translations = {
+  // Home Page
+  home: {
+    badge: {
+      th: "แพลตฟอร์มสุขภาพที่ดีที่สุด",
+      en: "Best Health Platform",
+    },
+    title: {
+      th: "เริ่มต้นการเดินทางสู่",
+      en: "Start Your Journey to",
+    },
+    titleHighlight: {
+      th: "สุขภาพที่ดีกว่า",
+      en: "Better Health",
+    },
+    description: {
+      th: "คำนวณ BMI, TDEE และค้นหาข้อมูลโภชนาการด้วยเครื่องมือที่แม่นยำและใช้งานง่าย เพื่อสุขภาพที่ดีขึ้นของคุณ",
+      en: "Calculate BMI, TDEE, and search nutrition information with accurate and easy-to-use tools for your better health",
+    },
+    ctaPrimary: {
+      th: "เริ่มต้นเลย",
+      en: "Get Started",
+    },
+    ctaSecondary: {
+      th: "ดูฟีเจอร์",
+      en: "View Features",
+    },
+    stats: {
+      accuracy: {
+        th: "ความแม่นยำ",
+        en: "Accuracy",
+      },
+      calculations: {
+        th: "การคำนวณ",
+        en: "Calculations",
+      },
+      users: {
+        th: "ผู้ใช้งาน",
+        en: "Users",
+      },
+    },
+    featuresEyebrow: {
+      th: "ฟีเจอร์ของเรา",
+      en: "Our Features",
+    },
+    featuresTitle: {
+      th: "เครื่องมือสุขภาพครบครัน",
+      en: "Complete Health Tools",
+    },
+    featuresDescription: {
+      th: "เลือกเครื่องมือที่เหมาะกับความต้องการของคุณ",
+      en: "Choose the tool that fits your needs",
+    },
+    features: {
+      bmi: {
+        title: {
+          th: "BMI Calculator",
+          en: "BMI Calculator",
+        },
+        description: {
+          th: "คำนวณดัชนีมวลกายเพื่อประเมินสุขภาพของคุณ",
+          en: "Calculate body mass index to assess your health",
+        },
+        benefits: [
+          {
+            th: "คำนวณแม่นยำตามมาตรฐาน WHO",
+            en: "Accurate calculation by WHO standards",
+          },
+          {
+            th: "แสดงผลด้วยภาพประกอบ",
+            en: "Visual representation",
+          },
+          {
+            th: "คำแนะนำตามผลลัพธ์",
+            en: "Recommendations based on results",
+          },
+        ],
+      },
+      tdee: {
+        title: {
+          th: "TDEE Calculator",
+          en: "TDEE Calculator",
+        },
+        description: {
+          th: "คำนวณพลังงานที่ใช้ต่อวันตามกิจกรรม",
+          en: "Calculate daily energy expenditure by activity",
+        },
+        benefits: [
+          {
+            th: "คำนวณ BMR และ TDEE",
+            en: "Calculate BMR and TDEE",
+          },
+          {
+            th: "แนะนำสัดส่วนสารอาหาร",
+            en: "Macronutrient recommendations",
+          },
+          {
+            th: "ปรับตามระดับกิจกรรม",
+            en: "Adjust by activity level",
+          },
+        ],
+      },
+      nutrition: {
+        title: {
+          th: "Nutrition Lookup",
+          en: "Nutrition Lookup",
+        },
+        description: {
+          th: "ค้นหาข้อมูลโภชนาการของอาหารต่างๆ",
+          en: "Search nutrition information for various foods",
+        },
+        benefits: [
+          {
+            th: "ฐานข้อมูลอาหารมากกว่า 800,000 รายการ",
+            en: "Database of over 800,000 food items",
+          },
+          {
+            th: "แสดงรายละเอียดสารอาหาร",
+            en: "Detailed nutrient information",
+          },
+          {
+            th: "รองรับการค้นหาหลายภาษา",
+            en: "Multi-language search support",
+          },
+        ],
+      },
+    },
+    howItWorksEyebrow: {
+      th: "วิธีใช้งาน",
+      en: "How It Works",
+    },
+    howItWorksTitle: {
+      th: "ง่ายเพียง 3 ขั้นตอน",
+      en: "Simple 3 Steps",
+    },
+    steps: {
+      step1: {
+        title: {
+          th: "เลือกเครื่องมือ",
+          en: "Choose Tool",
+        },
+        description: {
+          th: "เลือกเครื่องมือที่ต้องการใช้งาน BMI, TDEE หรือ Nutrition",
+          en: "Select the tool you want to use: BMI, TDEE, or Nutrition",
+        },
+      },
+      step2: {
+        title: {
+          th: "กรอกข้อมูล",
+          en: "Enter Information",
+        },
+        description: {
+          th: "กรอกข้อมูลที่จำเป็นตามฟอร์มที่กำหนด",
+          en: "Fill in the required information in the form",
+        },
+      },
+      step3: {
+        title: {
+          th: "รับผลลัพธ์",
+          en: "Get Results",
+        },
+        description: {
+          th: "ดูผลลัพธ์พร้อมคำแนะนำและข้อมูลที่เป็นประโยชน์",
+          en: "View results with recommendations and useful information",
+        },
+      },
+    },
+    ctaTitle: {
+      th: "พร้อมเริ่มต้นแล้วหรือยัง?",
+      en: "Ready to Get Started?",
+    },
+    ctaDescription: {
+      th: "เริ่มต้นใช้งานเครื่องมือสุขภาพของเราวันนี้",
+      en: "Start using our health tools today",
+    },
+    ctaButton: {
+      th: "เริ่มต้นตอนนี้",
+      en: "Start Now",
+    },
+  },
+
   // Navbar
   navbar: {
     brand: {
       th: "Healthier",
       en: "Healthier",
+    },
+    home: {
+      th: "หน้าแรก",
+      en: "Home",
     },
     bmi: {
       th: "BMI",
