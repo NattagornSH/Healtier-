@@ -124,6 +124,30 @@ export const translations = {
           },
         ],
       },
+      water: {
+        title: {
+          th: "Water Tracker",
+          en: "Water Tracker",
+        },
+        description: {
+          th: "ติดตามการดื่มน้ำและรับการแจ้งเตือน",
+          en: "Track water intake and receive reminders",
+        },
+        benefits: [
+          {
+            th: "คำนวณปริมาณน้ำที่แนะนำตามน้ำหนัก",
+            en: "Calculate recommended water based on weight",
+          },
+          {
+            th: "แจ้งเตือนดื่มน้ำอัตโนมัติ",
+            en: "Automatic drinking reminders",
+          },
+          {
+            th: "บันทึกประวัติและสถิติ",
+            en: "History and statistics tracking",
+          },
+        ],
+      },
     },
     howItWorksEyebrow: {
       th: "วิธีใช้งาน",
@@ -200,6 +224,10 @@ export const translations = {
     nutrition: {
       th: "โภชนาการ",
       en: "Nutrition",
+    },
+    water: {
+      th: "ดื่มน้ำ",
+      en: "Water",
     },
   },
 
@@ -618,6 +646,274 @@ export const translations = {
     cholesterol: {
       th: "คอเลสเตอรอล",
       en: "Cholesterol",
+    },
+  },
+
+  // Water Tracker
+  water: {
+    eyebrow: {
+      th: "Water Tracker",
+      en: "Water Tracker",
+    },
+    title: {
+      th: "ติดตามการดื่มน้ำ",
+      en: "Water Intake Tracker",
+    },
+    description: {
+      th: "ติดตามปริมาณน้ำที่ดื่มต่อวัน คำนวณปริมาณที่แนะนำตามน้ำหนัก และรับการแจ้งเตือนดื่มน้ำ",
+      en: "Track daily water intake, calculate recommended amount based on weight, and receive drinking reminders",
+    },
+    insights: {
+      hydration: {
+        th: "Hydration",
+        en: "Hydration",
+      },
+      daily: {
+        th: "Daily Goal",
+        en: "Daily Goal",
+      },
+      health: {
+        th: "Health",
+        en: "Health",
+      },
+    },
+    setupTitle: {
+      th: "ตั้งค่าเป้าหมายการดื่มน้ำ",
+      en: "Set Your Water Goal",
+    },
+    setupDescription: {
+      th: "กรอกน้ำหนักและระดับกิจกรรมเพื่อคำนวณปริมาณน้ำที่แนะนำ",
+      en: "Enter your weight and activity level to calculate recommended water intake",
+    },
+    weight: {
+      th: "น้ำหนัก (kg)",
+      en: "Weight (kg)",
+    },
+    weightPlaceholder: {
+      th: "เช่น 70",
+      en: "e.g. 70",
+    },
+    activityLevel: {
+      th: "ระดับกิจกรรม",
+      en: "Activity Level",
+    },
+    activities: {
+      sedentary: {
+        label: {
+          th: "ไม่ค่อยขยับ",
+          en: "Sedentary",
+        },
+      },
+      light: {
+        label: {
+          th: "เบาบาง",
+          en: "Light",
+        },
+      },
+      moderate: {
+        label: {
+          th: "ปานกลาง",
+          en: "Moderate",
+        },
+      },
+      active: {
+        label: {
+          th: "หนัก",
+          en: "Active",
+        },
+      },
+      very_active: {
+        label: {
+          th: "หนักมาก",
+          en: "Very Active",
+        },
+      },
+    },
+    calculate: {
+      th: "คำนวณเป้าหมาย",
+      en: "Calculate Goal",
+    },
+    todayProgress: {
+      th: "ความคืบหน้าวันนี้",
+      en: "Today's Progress",
+    },
+    editSettings: {
+      th: "แก้ไขการตั้งค่า",
+      en: "Edit Settings",
+    },
+    consumed: {
+      th: "ดื่มแล้ว",
+      en: "Consumed",
+    },
+    goal: {
+      th: "เป้าหมาย",
+      en: "Goal",
+    },
+    glasses: {
+      th: "แก้ว",
+      en: "glasses",
+    },
+    glassesLabel: {
+      th: "จำนวนแก้ว",
+      en: "Glasses",
+    },
+    remaining: {
+      th: "เหลืออีก",
+      en: "Remaining",
+    },
+    addWater: {
+      th: "เพิ่มปริมาณน้ำ",
+      en: "Add Water",
+    },
+    goalReached: {
+      th: "ถึงเป้าหมายแล้ว!",
+      en: "Goal Reached!",
+    },
+    or: {
+      th: "หรือ",
+      en: "or",
+    },
+    undo: {
+      th: "ยกเลิก",
+      en: "Undo",
+    },
+    notifications: {
+      title: {
+        th: "การแจ้งเตือน",
+        en: "Notifications",
+      },
+      description: {
+        th: "รับการแจ้งเตือนให้ดื่มน้ำทุก 2 ชั่วโมง",
+        en: "Receive reminders to drink water every 2 hours",
+      },
+      enabled: {
+        th: "เปิดการแจ้งเตือนแล้ว",
+        en: "Notifications Enabled",
+      },
+      enabledMessage: {
+        th: "คุณจะได้รับการแจ้งเตือนให้ดื่มน้ำทุก 2 ชั่วโมง",
+        en: "You will receive water reminders every 2 hours",
+      },
+      reminder: {
+        th: "ถึงเวลาดื่มน้ำ! 💧",
+        en: "Time to Drink Water! 💧",
+      },
+      reminderMessage: {
+        th: "คุณยังต้องดื่มน้ำอีก {amount} ml เพื่อให้ถึงเป้าหมายวันนี้",
+        en: "You still need to drink {amount} ml to reach today's goal",
+      },
+      goalReached: {
+        th: "ยินดีด้วย! 🎉",
+        en: "Congratulations! 🎉",
+      },
+      goalReachedMessage: {
+        th: "คุณดื่มน้ำครบตามเป้าหมายวันนี้แล้ว!",
+        en: "You've reached your water goal for today!",
+      },
+      permissionDenied: {
+        th: "การแจ้งเตือนถูกปิดใช้งาน กรุณาเปิดในการตั้งค่าเบราว์เซอร์",
+        en: "Notifications are blocked. Please enable them in browser settings",
+      },
+      active: {
+        th: "การแจ้งเตือนทำงานอยู่",
+        en: "Notifications are active",
+      },
+    },
+    history: {
+      title: {
+        th: "ประวัติการดื่มน้ำ",
+        en: "Water History",
+      },
+      last30Days: {
+        th: "30 วันล่าสุด",
+        en: "Last 30 days",
+      },
+      streak: {
+        th: "วันติดต่อกัน",
+        en: "Day Streak",
+      },
+      daysReached: {
+        th: "วันที่ถึงเป้า",
+        en: "Days Reached",
+      },
+      average: {
+        th: "เฉลี่ย",
+        en: "Average",
+      },
+      empty: {
+        th: "ยังไม่มีประวัติการดื่มน้ำ เริ่มติดตามวันนี้เลย!",
+        en: "No water history yet. Start tracking today!",
+      },
+      today: {
+        th: "วันนี้",
+        en: "Today",
+      },
+      yesterday: {
+        th: "เมื่อวาน",
+        en: "Yesterday",
+      },
+    },
+    tips: {
+      title: {
+        th: "เคล็ดลับการดื่มน้ำ",
+        en: "Water Drinking Tips",
+      },
+      tip1: {
+        icon: {
+          th: "🌅",
+          en: "🌅",
+        },
+        title: {
+          th: "เริ่มต้นวันด้วยน้ำ",
+          en: "Start Your Day with Water",
+        },
+        description: {
+          th: "ดื่มน้ำ 1-2 แก้วหลังตื่นนอนเพื่อกระตุ้นการเผาผลาญและชดเชยน้ำที่สูญเสียตอนกลางคืน",
+          en: "Drink 1-2 glasses after waking up to boost metabolism and replenish overnight water loss",
+        },
+      },
+      tip2: {
+        icon: {
+          th: "🍽️",
+          en: "🍽️",
+        },
+        title: {
+          th: "ดื่มก่อนมื้ออาหาร",
+          en: "Drink Before Meals",
+        },
+        description: {
+          th: "ดื่มน้ำ 30 นาทีก่อนมื้ออาหารช่วยให้รู้สึกอิ่มเร็วขึ้นและช่วยในการย่อยอาหาร",
+          en: "Drinking water 30 minutes before meals helps you feel fuller and aids digestion",
+        },
+      },
+      tip3: {
+        icon: {
+          th: "💪",
+          en: "💪",
+        },
+        title: {
+          th: "ดื่มระหว่างออกกำลังกาย",
+          en: "Hydrate During Exercise",
+        },
+        description: {
+          th: "ดื่มน้ำทุก 15-20 นาทีระหว่างออกกำลังกายเพื่อชดเชยน้ำที่เสียไปจากเหงื่อ",
+          en: "Drink water every 15-20 minutes during exercise to replace fluids lost through sweat",
+        },
+      },
+      tip4: {
+        icon: {
+          th: "🎨",
+          en: "🎨",
+        },
+        title: {
+          th: "ใช้ขวดน้ำสีสัน",
+          en: "Use a Colorful Bottle",
+        },
+        description: {
+          th: "เลือกขวดน้ำที่ชอบและพกติดตัวไปทุกที่ จะช่วยเตือนให้ดื่มน้ำบ่อยขึ้น",
+          en: "Choose a bottle you love and carry it everywhere to remind yourself to drink more often",
+        },
+      },
     },
   },
 

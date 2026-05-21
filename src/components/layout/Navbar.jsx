@@ -19,6 +19,7 @@ function Navbar() {
           <NavLink to="/bmi">{t(translations.navbar.bmi)}</NavLink>
           <NavLink to="/tdee">{t(translations.navbar.tdee)}</NavLink>
           <NavLink to="/nutrition">{t(translations.navbar.nutrition)}</NavLink>
+          <NavLink to="/water">{t(translations.navbar.water)}</NavLink>
         </nav>
         <button
           className="language-toggle"

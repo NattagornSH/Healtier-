@@ -59,6 +59,14 @@ function HomePage() {
       gradient: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
       link: "/nutrition",
     },
+    {
+      id: "water",
+      icon: "💧",
+      emoji: "🥤",
+      color: "#00b4d8",
+      gradient: "linear-gradient(135deg, #00b4d8 0%, #0077b6 100%)",
+      link: "/water",
+    },
   ];
 
   return (

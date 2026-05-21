@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage.jsx";
 import BMIPage from "./pages/BMIPage.jsx";
 import TDEEPage from "./pages/TDEEPage.jsx";
 import NutritionPage from "./pages/NutritionPage.jsx";
+import WaterPage from "./pages/WaterPage.jsx";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
               <Route path="/bmi" element={<BMIPage />} />
               <Route path="/tdee" element={<TDEEPage />} />
               <Route path="/nutrition" element={<NutritionPage />} />
+              <Route path="/water" element={<WaterPage />} />
             </Routes>
           </main>
         </div>
