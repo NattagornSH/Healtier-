@@ -1,30 +1,33 @@
-import { useState } from 'react'
-import InputField from '../ui/InputField.jsx'
-import ActivitySelector from './ActivitySelector.jsx'
-import { GENDER_OPTIONS } from '../../utils/constants.js'
-import { validateTDEEInput } from '../../utils/tdeeCalculator.js'
+import { useState } from "react";
+import { useLanguage } from "../../contexts/LanguageContext";
+import { translations } from "../../translations";
+import InputField from "../ui/InputField.jsx";
+import ActivitySelector from "./ActivitySelector.jsx";
+import { GENDER_OPTIONS } from "../../utils/constants.js";
+import { validateTDEEInput } from "../../utils/tdeeCalculator.js";
 
 const emptyForm = {
-  age: '',
-  gender: '',
-  weight: '',
-  height: '',
-  activityLevel: '',
-}
+  age: "",
+  gender: "",
+  weight: "",
+  height: "",
+  activityLevel: "",
+};
 
 function TDEEForm({ onCalculate, unit, onUnitChange }) {
-  const [form, setForm] = useState(emptyForm)
-  const [errors, setErrors] = useState([])
+  const [form, setForm] = useState(emptyForm);
+  const [errors, setErrors] = useState([]);
+  const { t } = useLanguage();
 
   const updateField = (field, value) => {
-    setForm((current) => ({ ...current, [field]: value }))
-  }
+    setForm((current) => ({ ...current, [field]: value }));
+  };
 
   const handleUnitChange = (nextUnit) => {
-    onUnitChange(nextUnit)
-    setForm((current) => ({ ...current, weight: '', height: '' }))
-    setErrors([])
-  }
+    onUnitChange(nextUnit);
+    setForm((current) => ({ ...current, weight: "", height: "" }));
+    setErrors([]);
+  };
 
   const buildInput = () => ({
     age: parseFloat(form.age),
@@ -33,99 +36,127 @@ function TDEEForm({ onCalculate, unit, onUnitChange }) {
     height: parseFloat(form.height),
     activityLevel: form.activityLevel,
     unit,
-  })
+  });
 
   const handleSubmit = (event) => {
-    event.preventDefault()
+    event.preventDefault();
 
-    const input = buildInput()
-    const validation = validateTDEEInput(input)
+    const input = buildInput();
+    const validation = validateTDEEInput(input);
 
     if (!validation.isValid) {
-      setErrors(validation.errors)
-      return
+      setErrors(validation.errors);
+      return;
     }
 
     try {
-      onCalculate(input)
-      setErrors([])
+      onCalculate(input);
+      setErrors([]);
     } catch (error) {
-      setErrors([error.message])
+      setErrors([error.message]);
     }
-  }
+  };
 
-  const weightUnit = unit === 'imperial' ? 'lb' : 'kg'
-  const heightUnit = unit === 'imperial' ? 'in' : 'cm'
+  const weightUnit = unit === "imperial" ? "lb" : "kg";
+  const heightUnit = unit === "imperial" ? "in" : "cm";
 
   return (
     <form className="tdee-form" onSubmit={handleSubmit} noValidate>
-      <div className="segmented-control" aria-label="หน่วยวัด">
+      <div
+        className="segmented-control"
+        aria-label={t(translations.tdee.unitLabel)}
+      >
         <button
           type="button"
-          className={unit === 'metric' ? 'segmented-control__item active' : 'segmented-control__item'}
-          onClick={() => handleUnitChange('metric')}
-          aria-pressed={unit === 'metric'}
+          className={
+            unit === "metric"
+              ? "segmented-control__item active"
+              : "segmented-control__item"
+          }
+          onClick={() => handleUnitChange("metric")}
+          aria-pressed={unit === "metric"}
         >
-          Metric
+          {t(translations.tdee.metric)}
         </button>
         <button
           type="button"
-          className={unit === 'imperial' ? 'segmented-control__item active' : 'segmented-control__item'}
-          onClick={() => handleUnitChange('imperial')}
-          aria-pressed={unit === 'imperial'}
+          className={
+            unit === "imperial"
+              ? "segmented-control__item active"
+              : "segmented-control__item"
+          }
+          onClick={() => handleUnitChange("imperial")}
+          aria-pressed={unit === "imperial"}
         >
-          Imperial
+          {t(translations.tdee.imperial)}
         </button>
       </div>
 
-      <div className="gender-toggle" aria-label="เพศ">
+      <div
+        className="gender-toggle"
+        aria-label={t(translations.tdee.genderLabel)}
+      >
         {GENDER_OPTIONS.map((gender) => (
           <button
             key={gender.key}
             type="button"
-            className={form.gender === gender.key ? 'gender-toggle__item active' : 'gender-toggle__item'}
-            onClick={() => updateField('gender', gender.key)}
+            className={
+              form.gender === gender.key
+                ? "gender-toggle__item active"
+                : "gender-toggle__item"
+            }
+            onClick={() => updateField("gender", gender.key)}
             aria-pressed={form.gender === gender.key}
           >
-            {gender.label}
+            {t(translations.tdee[gender.key])}
           </button>
         ))}
       </div>
 
       <InputField
         id="tdee-age"
-        label="อายุ (ปี)"
+        label={t(translations.tdee.age)}
         value={form.age}
-        onChange={(event) => updateField('age', event.target.value)}
+        onChange={(event) => updateField("age", event.target.value)}
         min="1"
         max="120"
         step="1"
-        placeholder="เช่น 30"
+        placeholder={t(translations.tdee.agePlaceholder)}
       />
       <InputField
         id="tdee-weight"
-        label={`น้ำหนัก (${weightUnit})`}
+        label={`${t(translations.tdee.weight)} (${weightUnit})`}
         value={form.weight}
-        onChange={(event) => updateField('weight', event.target.value)}
-        min={unit === 'imperial' ? '2' : '1'}
-        max={unit === 'imperial' ? '1099' : '499'}
+        onChange={(event) => updateField("weight", event.target.value)}
+        min={unit === "imperial" ? "2" : "1"}
+        max={unit === "imperial" ? "1099" : "499"}
         step="0.1"
-        placeholder={unit === 'imperial' ? 'เช่น 154' : 'เช่น 70'}
+        placeholder={t(
+          unit === "imperial"
+            ? translations.tdee.weightPlaceholderImperial
+            : translations.tdee.weightPlaceholderMetric,
+        )}
       />
       <InputField
         id="tdee-height"
-        label={`ส่วนสูง (${heightUnit})`}
+        label={`${t(translations.tdee.height)} (${heightUnit})`}
         value={form.height}
-        onChange={(event) => updateField('height', event.target.value)}
-        min={unit === 'imperial' ? '20' : '50'}
-        max={unit === 'imperial' ? '119' : '299'}
+        onChange={(event) => updateField("height", event.target.value)}
+        min={unit === "imperial" ? "20" : "50"}
+        max={unit === "imperial" ? "119" : "299"}
         step="0.1"
-        placeholder={unit === 'imperial' ? 'เช่น 67' : 'เช่น 170'}
+        placeholder={t(
+          unit === "imperial"
+            ? translations.tdee.heightPlaceholderImperial
+            : translations.tdee.heightPlaceholderMetric,
+        )}
       />
 
       <ActivitySelector
         value={form.activityLevel}
-        onChange={(activityLevel) => updateField('activityLevel', activityLevel)}
+        onChange={(activityLevel) =>
+          updateField("activityLevel", activityLevel)
+        }
       />
 
       {errors.length > 0 && (
@@ -137,10 +168,10 @@ function TDEEForm({ onCalculate, unit, onUnitChange }) {
       )}
 
       <button className="primary-button" type="submit">
-        คำนวณ TDEE
+        {t(translations.tdee.calculate)}
       </button>
     </form>
-  )
+  );
 }
 
-export default TDEEForm
+export default TDEEForm;

@@ -1,28 +1,29 @@
-import BMIForm from '../components/bmi/BMIForm.jsx'
-import BMIResult from '../components/bmi/BMIResult.jsx'
-import CharacterModel from '../components/ui/CharacterModel.jsx'
-import useBMI from '../hooks/useBMI.js'
+import { useLanguage } from "../contexts/LanguageContext";
+import { translations } from "../translations";
+import BMIForm from "../components/bmi/BMIForm.jsx";
+import BMIResult from "../components/bmi/BMIResult.jsx";
+import CharacterModel from "../components/ui/CharacterModel.jsx";
+import useBMI from "../hooks/useBMI.js";
 
 function BMIPage() {
-  const { bmi, category, calculate } = useBMI()
+  const { bmi, category, calculate } = useBMI();
+  const { t } = useLanguage();
 
   return (
     <div className="bmi-page">
       <section className="bmi-page__workspace feature-shell feature-shell--bmi">
         <div className="feature-shell__content">
           <section className="bmi-page__intro">
-            <p className="eyebrow">Health Calculator</p>
-            <h1>BMI Calculator</h1>
-            <p>
-              กรอกน้ำหนักและส่วนสูงเพื่อดูค่า BMI หมวดหมู่สุขภาพ และตัวละครที่ปรับตามผลลัพธ์
-            </p>
+            <p className="eyebrow">{t(translations.bmi.eyebrow)}</p>
+            <h1>{t(translations.bmi.title)}</h1>
+            <p>{t(translations.bmi.description)}</p>
           </section>
 
           <div className="insight-strip" aria-label="BMI categories">
-            <span>ผอม</span>
-            <span>ปกติ</span>
-            <span>ท้วม</span>
-            <span>25+</span>
+            <span>{t(translations.bmi.categories.thin)}</span>
+            <span>{t(translations.bmi.categories.normal)}</span>
+            <span>{t(translations.bmi.categories.fat)}</span>
+            <span>{t(translations.bmi.categories.obese)}</span>
           </div>
 
           <div className="bmi-page__panel">
@@ -40,14 +41,14 @@ function BMIPage() {
             ) : (
               <div className="empty-state">
                 <CharacterModel category="normal" />
-                <p>ผลลัพธ์จะแสดงตรงนี้หลังคำนวณ</p>
+                <p>{t(translations.bmi.emptyState)}</p>
               </div>
             )}
           </div>
         </div>
       </section>
     </div>
-  )
+  );
 }
 
-export default BMIPage
+export default BMIPage;

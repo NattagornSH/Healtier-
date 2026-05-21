@@ -17,10 +17,18 @@ body {
   margin: 0;
   min-height: 100vh;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(235, 240, 254, 0.74) 46%, #ffffff 100%),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.98) 0%,
+      rgba(235, 240, 254, 0.74) 46%,
+      #ffffff 100%
+    ),
     linear-gradient(90deg, rgba(36, 106, 254, 0.045) 1px, transparent 1px),
     linear-gradient(180deg, rgba(36, 106, 254, 0.035) 1px, transparent 1px);
-  background-size: auto, 96px 96px, 96px 96px;
+  background-size:
+    auto,
+    96px 96px,
+    96px 96px;
 }
 
 button,
@@ -105,11 +113,19 @@ textarea {
   display: inline-block;
   border-radius: 8px;
   background:
-    linear-gradient(var(--color-surface), var(--color-surface)) center / 18px 6px no-repeat,
-    linear-gradient(var(--color-surface), var(--color-surface)) center / 6px 18px no-repeat,
+    linear-gradient(var(--color-surface), var(--color-surface)) center / 18px
+      6px no-repeat,
+    linear-gradient(var(--color-surface), var(--color-surface)) center / 6px
+      18px no-repeat,
     var(--color-primary);
   box-shadow: 0 12px 24px rgba(36, 106, 254, 0.22);
-  content: '';
+  content: "";
+}
+
+.navbar__right {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
 }
 
 .navbar__links {
@@ -169,8 +185,12 @@ textarea {
   border: 1px solid rgba(216, 226, 251, 0.86);
   border-radius: 8px;
   padding: clamp(18px, 3vw, 34px);
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(248, 251, 255, 0.94) 48%, rgba(235, 240, 254, 0.82) 100%);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.96) 0%,
+    rgba(248, 251, 255, 0.94) 48%,
+    rgba(235, 240, 254, 0.82) 100%
+  );
   box-shadow: 0 30px 90px rgba(36, 106, 254, 0.14);
 }
 
@@ -179,11 +199,19 @@ textarea {
   inset: 0;
   z-index: -2;
   background:
-    linear-gradient(120deg, transparent 0 42%, rgba(36, 106, 254, 0.09) 42% 60%, transparent 60%),
+    linear-gradient(
+      120deg,
+      transparent 0 42%,
+      rgba(36, 106, 254, 0.09) 42% 60%,
+      transparent 60%
+    ),
     linear-gradient(90deg, rgba(36, 106, 254, 0.07) 1px, transparent 1px),
     linear-gradient(180deg, rgba(36, 106, 254, 0.055) 1px, transparent 1px);
-  background-size: auto, 44px 44px, 44px 44px;
-  content: '';
+  background-size:
+    auto,
+    44px 44px,
+    44px 44px;
+  content: "";
 }
 
 .feature-shell::after {
@@ -195,10 +223,13 @@ textarea {
   height: 210px;
   border: 1px solid rgba(36, 106, 254, 0.16);
   border-radius: 8px;
-  background:
-    repeating-linear-gradient(135deg, rgba(36, 106, 254, 0.12) 0 8px, transparent 8px 18px);
+  background: repeating-linear-gradient(
+    135deg,
+    rgba(36, 106, 254, 0.12) 0 8px,
+    transparent 8px 18px
+  );
   transform: rotate(-8deg);
-  content: '';
+  content: "";
 }
 
 .feature-shell__content {
@@ -228,18 +259,27 @@ textarea {
 }
 
 .feature-shell--bmi::after {
-  background:
-    repeating-linear-gradient(135deg, rgba(36, 106, 254, 0.14) 0 8px, transparent 8px 18px);
+  background: repeating-linear-gradient(
+    135deg,
+    rgba(36, 106, 254, 0.14) 0 8px,
+    transparent 8px 18px
+  );
 }
 
 .feature-shell--tdee::after {
-  background:
-    repeating-linear-gradient(135deg, rgba(19, 168, 126, 0.14) 0 8px, transparent 8px 18px);
+  background: repeating-linear-gradient(
+    135deg,
+    rgba(19, 168, 126, 0.14) 0 8px,
+    transparent 8px 18px
+  );
 }
 
 .feature-shell--nutrition::after {
-  background:
-    repeating-linear-gradient(135deg, rgba(244, 119, 46, 0.13) 0 8px, transparent 8px 18px);
+  background: repeating-linear-gradient(
+    135deg,
+    rgba(244, 119, 46, 0.13) 0 8px,
+    transparent 8px 18px
+  );
 }
 
 .insight-strip {
@@ -280,7 +320,7 @@ textarea {
   border-radius: 999px;
   background: var(--color-primary);
   box-shadow: 18px 0 0 var(--color-primary-soft);
-  content: '';
+  content: "";
 }
 
 .eyebrow {
@@ -374,9 +414,12 @@ p {
   position: absolute;
   inset: 0 0 auto;
   height: 5px;
-  background:
-    linear-gradient(90deg, var(--color-primary), rgba(36, 106, 254, 0.38));
-  content: '';
+  background: linear-gradient(
+    90deg,
+    var(--color-primary),
+    rgba(36, 106, 254, 0.38)
+  );
+  content: "";
 }
 
 .bmi-page__panel,
@@ -399,8 +442,12 @@ p {
   align-items: end;
   justify-items: center;
   padding: clamp(18px, 3vw, 32px);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 251, 255, 0.94) 54%, rgba(235, 240, 254, 0.72) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.98) 0%,
+    rgba(248, 251, 255, 0.94) 54%,
+    rgba(235, 240, 254, 0.72) 100%
+  );
 }
 
 .bmi-page__visual::before {
@@ -410,9 +457,19 @@ p {
   border: 1px solid rgba(36, 106, 254, 0.1);
   border-radius: 8px;
   background:
-    linear-gradient(90deg, transparent 49%, rgba(36, 106, 254, 0.08) 49% 51%, transparent 51%),
-    linear-gradient(180deg, transparent 49%, rgba(36, 106, 254, 0.08) 49% 51%, transparent 51%);
-  content: '';
+    linear-gradient(
+      90deg,
+      transparent 49%,
+      rgba(36, 106, 254, 0.08) 49% 51%,
+      transparent 51%
+    ),
+    linear-gradient(
+      180deg,
+      transparent 49%,
+      rgba(36, 106, 254, 0.08) 49% 51%,
+      transparent 51%
+    );
+  content: "";
 }
 
 .bmi-form,
@@ -470,7 +527,9 @@ p {
 .input-field input:focus,
 .nutrition-search-form textarea:focus {
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 4px var(--color-ring), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  box-shadow:
+    0 0 0 4px var(--color-ring),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
   outline: none;
 }
 
@@ -524,8 +583,7 @@ p {
 .primary-button {
   border: 0;
   color: #ffffff;
-  background:
-    linear-gradient(180deg, #3d7cff 0%, var(--color-primary) 100%);
+  background: linear-gradient(180deg, #3d7cff 0%, var(--color-primary) 100%);
   box-shadow: 0 14px 28px rgba(36, 106, 254, 0.24);
 }
 
@@ -630,8 +688,7 @@ p {
   border-radius: 8px;
   padding: 14px;
   color: var(--color-text);
-  background:
-    linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
   text-align: left;
   box-shadow: 0 8px 20px rgba(36, 106, 254, 0.045);
 }
@@ -673,8 +730,14 @@ p {
 
 .activity-card--active {
   border-color: var(--activity-color);
-  background: linear-gradient(180deg, #ffffff 0%, var(--color-primary-soft) 100%);
-  box-shadow: inset 0 0 0 1px var(--activity-color), var(--shadow-lift);
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    var(--color-primary-soft) 100%
+  );
+  box-shadow:
+    inset 0 0 0 1px var(--activity-color),
+    var(--shadow-lift);
 }
 
 .character {
@@ -715,11 +778,18 @@ p {
   position: relative;
   overflow: hidden;
   width: 100%;
-  border-color: color-mix(in srgb, var(--category-color) 38%, var(--color-border));
+  border-color: color-mix(
+    in srgb,
+    var(--category-color) 38%,
+    var(--color-border)
+  );
   border-left: 6px solid var(--category-color);
   padding: clamp(20px, 3vw, 30px);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.99) 0%, rgba(248, 251, 255, 0.99) 100%);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.99) 0%,
+    rgba(248, 251, 255, 0.99) 100%
+  );
   box-shadow: var(--shadow-card);
 }
 
@@ -727,10 +797,14 @@ p {
   position: absolute;
   inset: 0 0 auto;
   height: 100%;
-  background:
-    linear-gradient(118deg, transparent 0 56%, color-mix(in srgb, var(--category-color) 12%, transparent) 56% 72%, transparent 72%);
+  background: linear-gradient(
+    118deg,
+    transparent 0 56%,
+    color-mix(in srgb, var(--category-color) 12%, transparent) 56% 72%,
+    transparent 72%
+  );
   pointer-events: none;
-  content: '';
+  content: "";
 }
 
 .result-card > * {
@@ -772,8 +846,7 @@ p {
   padding: var(--spacing-md);
   border: 1px solid var(--color-border);
   border-radius: 8px;
-  background:
-    linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
   box-shadow: 0 10px 24px rgba(36, 106, 254, 0.055);
 }
 
@@ -876,8 +949,11 @@ p {
 }
 
 .tdee-result__cards .result-card:last-child {
-  background:
-    linear-gradient(180deg, #ffffff 0%, rgba(235, 240, 254, 0.9) 100%);
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    rgba(235, 240, 254, 0.9) 100%
+  );
 }
 
 .energy-card {
@@ -916,8 +992,7 @@ p {
   border-top: 5px solid var(--macro-color);
   border-radius: 8px;
   padding: var(--spacing-md);
-  background:
-    linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
   box-shadow: 0 12px 28px rgba(36, 106, 254, 0.06);
 }
 
@@ -928,10 +1003,13 @@ p {
   width: 92px;
   height: 68px;
   border: 1px solid color-mix(in srgb, var(--macro-color) 24%, transparent);
-  background:
-    repeating-linear-gradient(135deg, color-mix(in srgb, var(--macro-color) 18%, transparent) 0 6px, transparent 6px 14px);
+  background: repeating-linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--macro-color) 18%, transparent) 0 6px,
+    transparent 6px 14px
+  );
   transform: rotate(-14deg);
-  content: '';
+  content: "";
 }
 
 .macro-card span {
@@ -986,8 +1064,7 @@ p {
   border: 1px solid var(--color-border);
   border-radius: 8px;
   padding: var(--spacing-md);
-  background:
-    linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
   box-shadow: 0 10px 24px rgba(36, 106, 254, 0.05);
 }
 
@@ -1057,8 +1134,7 @@ p {
 .nutrition-item-card {
   display: grid;
   gap: var(--spacing-md);
-  background:
-    linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
   box-shadow: 0 14px 34px rgba(36, 106, 254, 0.065);
 }
 
@@ -1079,8 +1155,7 @@ p {
   border-radius: 8px;
   padding: 8px 10px;
   color: #ffffff;
-  background:
-    linear-gradient(180deg, #ff8a48 0%, var(--color-calories) 100%);
+  background: linear-gradient(180deg, #ff8a48 0%, var(--color-calories) 100%);
   font-size: 1.12rem;
   font-weight: 900;
   line-height: 1.2;
@@ -1166,6 +1241,12 @@ p {
     align-items: flex-start;
     flex-direction: column;
     min-height: 0;
+  }
+
+  .navbar__right {
+    width: 100%;
+    flex-direction: column;
+    gap: var(--spacing-sm);
   }
 
   .navbar__links {

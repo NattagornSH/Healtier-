@@ -1,49 +1,52 @@
-import { useState } from 'react'
-import InputField from '../ui/InputField.jsx'
-import { validateInput } from '../../utils/bmiCalculator.js'
+import { useState } from "react";
+import { useLanguage } from "../../contexts/LanguageContext";
+import { translations } from "../../translations";
+import InputField from "../ui/InputField.jsx";
+import { validateInput } from "../../utils/bmiCalculator.js";
 
 function BMIForm({ onCalculate }) {
-  const [weight, setWeight] = useState('')
-  const [height, setHeight] = useState('')
-  const [errors, setErrors] = useState([])
+  const [weight, setWeight] = useState("");
+  const [height, setHeight] = useState("");
+  const [errors, setErrors] = useState([]);
+  const { t } = useLanguage();
 
   const handleSubmit = (event) => {
-    event.preventDefault()
+    event.preventDefault();
 
-    const parsedWeight = parseFloat(weight)
-    const parsedHeight = parseFloat(height)
-    const validation = validateInput(parsedWeight, parsedHeight)
+    const parsedWeight = parseFloat(weight);
+    const parsedHeight = parseFloat(height);
+    const validation = validateInput(parsedWeight, parsedHeight);
 
     if (!validation.isValid) {
-      setErrors(validation.errors)
-      return
+      setErrors(validation.errors);
+      return;
     }
 
-    setErrors([])
-    onCalculate(parsedWeight, parsedHeight)
-  }
+    setErrors([]);
+    onCalculate(parsedWeight, parsedHeight);
+  };
 
   return (
     <form className="bmi-form" onSubmit={handleSubmit} noValidate>
       <InputField
         id="weight"
-        label="น้ำหนัก (kg)"
+        label={t(translations.bmi.weight)}
         value={weight}
         onChange={(event) => setWeight(event.target.value)}
         min="1"
         max="499"
         step="0.1"
-        placeholder="เช่น 65"
+        placeholder={t(translations.bmi.weightPlaceholder)}
       />
       <InputField
         id="height"
-        label="ส่วนสูง (cm)"
+        label={t(translations.bmi.height)}
         value={height}
         onChange={(event) => setHeight(event.target.value)}
         min="1"
         max="299"
         step="0.1"
-        placeholder="เช่น 170"
+        placeholder={t(translations.bmi.heightPlaceholder)}
       />
       {errors.length > 0 && (
         <div className="form-errors" role="alert">
@@ -53,10 +56,10 @@ function BMIForm({ onCalculate }) {
         </div>
       )}
       <button className="primary-button" type="submit">
-        คำนวณ BMI
+        {t(translations.bmi.calculate)}
       </button>
     </form>
-  )
+  );
 }
 
-export default BMIForm
+export default BMIForm;

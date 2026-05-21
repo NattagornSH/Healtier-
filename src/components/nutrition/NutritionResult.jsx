@@ -1,15 +1,19 @@
-import NutritionItemCard from './NutritionItemCard.jsx'
+import { useLanguage } from "../../contexts/LanguageContext";
+import { translations } from "../../translations";
+import NutritionItemCard from "./NutritionItemCard.jsx";
 
 function NutritionResult({ items, onReset }) {
+  const { t } = useLanguage();
+
   return (
     <section className="nutrition-result" aria-label="Nutrition result">
       <div className="nutrition-result__header">
         <div>
-          <p className="eyebrow">Results</p>
-          <h2>รายการอาหารที่พบ</h2>
+          <p className="eyebrow">{t(translations.nutrition.resultsEyebrow)}</p>
+          <h2>{t(translations.nutrition.resultsTitle)}</h2>
         </div>
         <button className="secondary-button" type="button" onClick={onReset}>
-          ล้างผลลัพธ์
+          {t(translations.nutrition.clearResults)}
         </button>
       </div>
 
@@ -19,7 +23,7 @@ function NutritionResult({ items, onReset }) {
         ))}
       </div>
     </section>
-  )
+  );
 }
 
-export default NutritionResult
+export default NutritionResult;

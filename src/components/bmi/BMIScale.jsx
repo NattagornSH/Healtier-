@@ -1,8 +1,11 @@
-import { BMI_CATEGORIES } from '../../utils/constants.js'
-import { calculateScalePosition } from '../../utils/bmiCalculator.js'
+import { useLanguage } from "../../contexts/LanguageContext";
+import { translations } from "../../translations";
+import { BMI_CATEGORIES } from "../../utils/constants.js";
+import { calculateScalePosition } from "../../utils/bmiCalculator.js";
 
 function BMIScale({ currentBMI, category }) {
-  const position = calculateScalePosition(currentBMI)
+  const position = calculateScalePosition(currentBMI);
+  const { t } = useLanguage();
 
   return (
     <section className="bmi-scale" aria-label="BMI scale">
@@ -11,16 +14,16 @@ function BMIScale({ currentBMI, category }) {
           <span
             key={item.key}
             className={`bmi-scale__segment bmi-scale__segment--${item.key}`}
-            aria-label={item.label}
+            aria-label={t(translations.bmi.categoryLabels[item.key])}
           />
         ))}
         <span
           className="bmi-scale__indicator"
           style={{
             left: `${position}%`,
-            '--category-color': category.color,
+            "--category-color": category.color,
           }}
-          aria-label={`ตำแหน่ง BMI ${currentBMI.toFixed(1)}`}
+          aria-label={`${t(translations.bmi.scaleLabel)} ${currentBMI.toFixed(1)}`}
         />
       </div>
       <div className="bmi-scale__labels" aria-hidden="true">
@@ -32,7 +35,7 @@ function BMIScale({ currentBMI, category }) {
         <span>35</span>
       </div>
     </section>
-  )
+  );
 }
 
-export default BMIScale
+export default BMIScale;
