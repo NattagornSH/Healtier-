@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/nutrition",
+      "destination": "/api/nutrition.js"
+    }
+  ]
+}
