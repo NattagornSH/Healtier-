@@ -1,0 +1,53 @@
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bmi-page__panel,
+.bmi-page__visual,
+.tdee-page__panel,
+.tdee-page__summary,
+.nutrition-page__search,
+.nutrition-state,
+.nutrition-summary,
+.nutrition-result,
+.placeholder-page {
+  animation: slide-in 260ms ease-out both;
+}
+
+.character {
+  opacity: 1;
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+
+.character--transitioning {
+  opacity: 0;
+  transform: translateY(8px) scale(0.98);
+}
