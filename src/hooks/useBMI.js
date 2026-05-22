@@ -17,8 +17,19 @@ function useBMI() {
     }
 
     const bmiValue = calculateBMI(weight, height)
+    const cat = getBMICategory(bmiValue)
     setBMI(bmiValue)
-    setCategory(getBMICategory(bmiValue))
+    setCategory(cat)
+
+    // Persist to localStorage so Dashboard can read it
+    try {
+      localStorage.setItem(
+        'healtier_bmi_result',
+        JSON.stringify({ bmi: bmiValue, categoryKey: cat?.key, weight, height })
+      )
+    } catch {
+      // ignore storage errors
+    }
   }, [])
 
   return { bmi, category, calculate }

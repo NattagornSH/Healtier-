@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import { useLanguage } from "../../contexts/LanguageContext";
 import { translations } from "../../translations";
 import "./LanguageToggle.css";
+import "./Navbar.css";
 
 function Navbar() {
   const { language, toggleLanguage, t } = useLanguage();
@@ -15,6 +16,9 @@ function Navbar() {
         <nav className="navbar__links" aria-label="Main navigation">
           <NavLink to="/" end>
             {t(translations.navbar.home)}
+          </NavLink>
+          <NavLink to="/dashboard" className="navbar__dashboard-link">
+            {language === "th" ? "แดชบอร์ด" : "Dashboard"}
           </NavLink>
           <NavLink to="/bmi">{t(translations.navbar.bmi)}</NavLink>
           <NavLink to="/tdee">{t(translations.navbar.tdee)}</NavLink>
@@ -43,3 +47,4 @@ function Navbar() {
 }
 
 export default Navbar;
+

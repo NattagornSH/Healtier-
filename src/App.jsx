@@ -6,6 +6,7 @@ import BMIPage from "./pages/BMIPage.jsx";
 import TDEEPage from "./pages/TDEEPage.jsx";
 import NutritionPage from "./pages/NutritionPage.jsx";
 import WaterPage from "./pages/WaterPage.jsx";
+import DashboardPage from "./pages/DashboardPage.jsx";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <main className="app-main">
             <Routes>
               <Route path="/" element={<HomePage />} />
+              <Route path="/dashboard" element={<DashboardPage />} />
               <Route path="/bmi" element={<BMIPage />} />
               <Route path="/tdee" element={<TDEEPage />} />
               <Route path="/nutrition" element={<NutritionPage />} />
@@ -31,3 +33,4 @@ function App() {
 }
 
 export default App;
+

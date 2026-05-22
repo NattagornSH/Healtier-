@@ -30,12 +30,26 @@ function useTDEE() {
     }
 
     const tdee = calculateTDEE(bmr, activityFactor)
+    const macros = calculateMacros(tdee)
 
-    setResult({
+    const resultObj = {
       bmr: Math.round(bmr),
       tdee: Math.round(tdee),
-      macros: calculateMacros(tdee),
-    })
+      macros,
+      // flat for easy Dashboard consumption
+      protein: macros.protein,
+      carbs: macros.carbs,
+      fat: macros.fat,
+    }
+
+    setResult(resultObj)
+
+    // Persist to localStorage so Dashboard can read it
+    try {
+      localStorage.setItem('healtier_tdee_result', JSON.stringify(resultObj))
+    } catch {
+      // ignore storage errors
+    }
   }, [])
 
   const reset = useCallback(() => {
