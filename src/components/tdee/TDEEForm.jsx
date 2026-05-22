@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLanguage } from "../../contexts/LanguageContext";
+import { useProfile } from "../../contexts/ProfileContext";
 import { translations } from "../../translations";
 import InputField from "../ui/InputField.jsx";
 import ActivitySelector from "./ActivitySelector.jsx";
@@ -14,10 +15,28 @@ const emptyForm = {
   activityLevel: "",
 };
 
-function TDEEForm({ onCalculate, unit, onUnitChange }) {
-  const [form, setForm] = useState(emptyForm);
+function TDEEForm({ onCalculate, unit, onUnitChange, key: _key }) {
+  const { profile, updateProfile } = useProfile();
+  const [form, setForm] = useState(() => ({
+    age:           profile.age           ?? "",
+    gender:        profile.gender        ?? "",
+    weight:        profile.weight        ?? "",
+    height:        profile.height        ?? "",
+    activityLevel: profile.activityLevel ?? "",
+  }));
   const [errors, setErrors] = useState([]);
   const { t } = useLanguage();
+
+  // Sync when profile is updated externally (e.g., from Profile page or BMI save)
+  useEffect(() => {
+    setForm((prev) => ({
+      age:           prev.age           !== "" ? prev.age           : (profile.age           ?? ""),
+      gender:        prev.gender        !== "" ? prev.gender        : (profile.gender        ?? ""),
+      weight:        prev.weight        !== "" ? prev.weight        : (profile.weight        ?? ""),
+      height:        prev.height        !== "" ? prev.height        : (profile.height        ?? ""),
+      activityLevel: prev.activityLevel !== "" ? prev.activityLevel : (profile.activityLevel ?? ""),
+    }));
+  }, [profile]);
 
   const updateField = (field, value) => {
     setForm((current) => ({ ...current, [field]: value }));
@@ -30,10 +49,10 @@ function TDEEForm({ onCalculate, unit, onUnitChange }) {
   };
 
   const buildInput = () => ({
-    age: parseFloat(form.age),
-    gender: form.gender,
-    weight: parseFloat(form.weight),
-    height: parseFloat(form.height),
+    age:           parseFloat(form.age),
+    gender:        form.gender,
+    weight:        parseFloat(form.weight),
+    height:        parseFloat(form.height),
     activityLevel: form.activityLevel,
     unit,
   });
@@ -50,6 +69,14 @@ function TDEEForm({ onCalculate, unit, onUnitChange }) {
     }
 
     try {
+      // Save all TDEE fields back to profile
+      updateProfile({
+        age:           form.age,
+        gender:        form.gender,
+        weight:        form.weight,
+        height:        form.height,
+        activityLevel: form.activityLevel,
+      });
       onCalculate(input);
       setErrors([]);
     } catch (error) {

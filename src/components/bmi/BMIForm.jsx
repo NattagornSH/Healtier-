@@ -1,14 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLanguage } from "../../contexts/LanguageContext";
+import { useProfile } from "../../contexts/ProfileContext";
 import { translations } from "../../translations";
 import InputField from "../ui/InputField.jsx";
 import { validateInput } from "../../utils/bmiCalculator.js";
 
 function BMIForm({ onCalculate }) {
-  const [weight, setWeight] = useState("");
-  const [height, setHeight] = useState("");
+  const { profile, updateProfile } = useProfile();
+  const [weight, setWeight] = useState(profile.weight ?? "");
+  const [height, setHeight] = useState(profile.height ?? "");
   const [errors, setErrors] = useState([]);
   const { t } = useLanguage();
+
+  // Keep fields in sync when profile changes from Profile page
+  useEffect(() => {
+    setWeight((prev) => (prev === "" ? (profile.weight ?? "") : prev));
+    setHeight((prev) => (prev === "" ? (profile.height ?? "") : prev));
+  }, [profile.weight, profile.height]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -23,6 +31,8 @@ function BMIForm({ onCalculate }) {
     }
 
     setErrors([]);
+    // Save weight/height back to profile so TDEE gets it too
+    updateProfile({ weight, height });
     onCalculate(parsedWeight, parsedHeight);
   };
 
@@ -63,3 +73,4 @@ function BMIForm({ onCalculate }) {
 }
 
 export default BMIForm;
+

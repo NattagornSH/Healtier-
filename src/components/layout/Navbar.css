@@ -26,3 +26,63 @@
   color: #ffffff;
   box-shadow: 0 10px 24px rgba(102, 126, 234, 0.35);
 }
+
+/* ── Profile button ── */
+.navbar__profile-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.12), rgba(118, 75, 162, 0.1));
+  border: 1.5px solid rgba(102, 126, 234, 0.22);
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.navbar__profile-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.navbar__profile-btn:hover {
+  border-color: var(--color-primary);
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.18));
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.22);
+}
+
+.navbar__profile-btn.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-color: transparent;
+  color: #ffffff;
+  box-shadow: 0 10px 24px rgba(102, 126, 234, 0.35);
+}
+
+.navbar__profile-initials {
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0;
+}
+
+/* Green dot — shows when profile has data */
+.navbar__profile-dot {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #16a37a;
+  border: 2px solid #fff;
+  display: none;
+}
+
+.navbar__profile-btn.active .navbar__profile-dot {
+  border-color: transparent;
+}
